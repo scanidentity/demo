@@ -53,25 +53,31 @@ function App() {
     const createKYCPromise = async () => {
       setIsLoading(true)
 
+      const payload: any = {
+        userID: userID,
+        securityLevel: securityLevel,
+      }
+
+      if (name) payload.name = name
+      if (email) payload.email = email
+      if (phoneNumber) payload.phoneNumber = phoneNumber
+      if (documentNumber) payload.documentNumber = documentNumber
+      if (documentType) payload.documentType = documentType === '01' ? 'national_id' : 'passport'
+      if (country) payload.country = country
+      if (ipAddress) payload.ipAddress = ipAddress
+      if (gender) payload.gender = gender
+      if (language) payload.language = language
+
+      console.log('Language value:', language)
+      console.log('Payload being sent:', payload)
+
       const response = await fetch(`${BASE_URL}/api/profiles/create`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'x-api-key': API_KEY
         },
-        body: JSON.stringify({
-          name: name,
-          userID: userID,
-          email: email,
-          phoneNumber: phoneNumber,
-          documentNumber: documentNumber,
-          documentType: documentType === '01' ? 'national_id' : 'passport',
-          country: country,
-          ipAddress: ipAddress,
-          securityLevel: securityLevel,
-          gender: gender,
-          language: language
-        })
+        body: JSON.stringify(payload)
       })
 
       if (!response.ok) {
