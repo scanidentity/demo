@@ -20,8 +20,8 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 
-const API_KEY = import.meta.env.VITE_API_KEY
-const BASE_URL = import.meta.env.VITE_BASE_URL
+const API_KEY = import.meta.env.BACKEND_API_KEY
+const BASE_URL = import.meta.env.BACKEND_API_URL
 
 function App() {
   const [name, setName] = useState('')

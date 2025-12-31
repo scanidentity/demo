@@ -41,8 +41,8 @@ npm install
 Create a `.env` file in the root directory with the following variables:
 
 ```env
-VITE_API_KEY=your_api_key_here
-VITE_BASE_URL=your_api_base_url_here
+BACKEND_API_KEY=your_api_key_here
+BACKEND_API_URL=your_api_base_url_here
 ```
 
 ### Development
