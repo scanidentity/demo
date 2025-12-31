@@ -20,8 +20,8 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 
-const API_KEY = import.meta.env.BACKEND_API_KEY
-const BASE_URL = import.meta.env.BACKEND_API_URL
+const API_KEY = import.meta.env.VITE_BACKEND_API_KEY
+const BASE_URL = import.meta.env.VITE_BACKEND_API_URL
 
 function App() {
   const [name, setName] = useState('')
@@ -71,11 +71,11 @@ function App() {
       console.log('Language value:', language)
       console.log('Payload being sent:', payload)
 
-      const response = await fetch(`https://api.identivia.com/api/profiles/create`, {
+      const response = await fetch(`${BASE_URL}/api/profiles/create`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'x-api-key': 'your-secret-api-key-1'
+          'x-api-key': API_KEY
         },
         body: JSON.stringify(payload)
       })
