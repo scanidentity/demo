@@ -71,11 +71,11 @@ function App() {
       console.log('Language value:', language)
       console.log('Payload being sent:', payload)
 
-      const response = await fetch(`${BASE_URL}/api/profiles/create`, {
+      const response = await fetch(`https://api.identivia.com/api/profiles/create`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'x-api-key': API_KEY
+          'x-api-key': 'your-secret-api-key-1'
         },
         body: JSON.stringify(payload)
       })
