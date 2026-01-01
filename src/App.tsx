@@ -117,7 +117,7 @@ function App() {
     <>
       <div className="w-full max-w-sd">
         <FieldSet>
-          <FieldLegend>A KYC Example Test</FieldLegend>
+          <FieldLegend>Identivia: Demo</FieldLegend>
           <FieldDescription>
             We need your information to verify your identity.
           </FieldDescription>
