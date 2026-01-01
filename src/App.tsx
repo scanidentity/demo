@@ -21,9 +21,9 @@ import {
 } from "@/components/ui/select"
 
 const API_KEY = import.meta.env.VITE_BACKEND_API_KEY
-const BASE_URL = import.meta.env.VITE_BACKEND_API_URL
 
 function App() {
+  const [server, setServer] = useState('api.identivia.com')
   const [name, setName] = useState('')
   const [userID, setUserID] = useState('')
   const [email, setEmail] = useState('')
@@ -71,7 +71,9 @@ function App() {
       console.log('Language value:', language)
       console.log('Payload being sent:', payload)
 
-      const response = await fetch(`${BASE_URL}/api/profiles/create`, {
+      console.log('Payload being sent:', payload)
+
+      const response = await fetch(`https://${server}/api/profiles/create`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -265,6 +267,20 @@ function App() {
               </Field>
             </div>
             <div className="grid grid-cols-2 gap-4">
+              <Field>
+                <FieldLabel htmlFor="server">Server</FieldLabel>
+                <Input
+                  id="server"
+                  type="text"
+                  placeholder="api.identivia.com"
+                  list="servers"
+                  value={server}
+                  onChange={(e) => setServer(e.target.value)}
+                />
+                <datalist id="servers">
+                  <option value="api.identivia.com" />
+                </datalist>
+              </Field>
               <Field>
                 <FieldLabel htmlFor="language">Language</FieldLabel>
                 <Select
